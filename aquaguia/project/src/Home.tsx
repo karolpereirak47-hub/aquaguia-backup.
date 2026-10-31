@@ -3,6 +3,7 @@ import {
   Fish, Info, Search, Star, Waves,
 } from 'lucide-react';
 import { Logo } from './components/Logo';
+import { getTipOfDay } from './data/dailyTips';
 import type { Screen } from './App';
 
 interface HomeProps {
@@ -20,6 +21,7 @@ const menu: { id: Screen; label: string; desc: string; icon: typeof Fish; tint: 
 ];
 
 export function Home({ onNavigate }: HomeProps) {
+  const tip = getTipOfDay();
   return (
     <div className="flex min-h-full flex-col">
       {/* Hero */}
@@ -71,7 +73,7 @@ export function Home({ onNavigate }: HomeProps) {
         <div className="mt-6 rounded-2xl bg-gradient-to-r from-teal-500 to-aqua-600 p-4 text-white shadow-soft">
           <p className="text-sm font-semibold">Dica do dia</p>
           <p className="mt-1 text-sm text-white/90">
-            Meça o oxigênio da água ao amanhecer — é o momento mais crítico do dia para os peixes.
+            {tip}
           </p>
         </div>
       </div>

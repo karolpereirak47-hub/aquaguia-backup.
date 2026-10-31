@@ -29,6 +29,8 @@
   - Manual de pescado
 - Years, authors, and institutions corrected to match actual source pages.
 - Institution filter updated to reflect remaining sources (Embrapa only).
+- **Dica do dia** selects tip by date (same tip all day), using 8 technical aquaculture tips (oxygen, ammonia, water transparency, feed, local storage). Date-based selection — no database persistence needed.
+- App should support **offline operation** (local storage).
 - Verification tool hit session limit — could not check all links or search for new materials.
 - Type-checking not possible: project dependencies not installed in current environment.
 
@@ -39,3 +41,4 @@
 - Only **1 tambaqui-specific material** remains; tambaqui priority feels underrepresented — new verification session needed to find more.
 - Rebuilt library file without comparing to previous version — may have lost content beyond what user requested; worth a full review.
 - Verification tool blocked at session limit; needs a new session to continue link checks and document discovery.
+- Dica do dia was not visually tested in browser — verification done by code reading only.
