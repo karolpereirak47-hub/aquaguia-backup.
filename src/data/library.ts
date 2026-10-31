@@ -172,6 +172,22 @@ export const libraryItems: LibraryItem[] = [
     hasPdf: true,
     hasVideo: false,
   },
+  {
+    id: 'lib-029',
+    title: 'Cartilha orientadora da qualidade das formas jovens de tilápia: avaliando alevinos e juvenis para a piscicultura',
+    institution: 'Ministério da Pesca e Aquicultura',
+    author: 'Superintendência Federal de Pesca e Aquicultura no Rio Grande do Sul (SFPA/RS)',
+    year: '2023',
+    abstract:
+      'Cartilha orientadora para avaliar a qualidade de alevinos e juvenis de tilápia antes da compra e do povoamento dos viveiros, com orientações para o piscicultor.',
+    category: 'aquicultura',
+    speciesRelated: ['tilapia'],
+    subject: 'Qualidade de alevinos e juvenis de tilápia',
+    type: 'cartilha',
+    url: 'https://www.gov.br/mpa/pt-br/Central_Conteudos/cartilhaorientadoradaqualidadedasformasjovensdatilapia.pdf',
+    hasPdf: true,
+    hasVideo: false,
+  },
 ];
 
 export function getLibraryBySpecies(speciesId: string): LibraryItem[] {

@@ -28,6 +28,7 @@ const institutions = [
   'Embrapa Acre',
   'Embrapa Pesca e Aquicultura',
   'Embrapa Agroindústria de Alimentos',
+  'Ministério da Pesca e Aquicultura',
 ];
 
 export function Library({ onBack }: { onBack: () => void }) {
