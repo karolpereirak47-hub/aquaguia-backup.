@@ -255,19 +255,25 @@ export function SpeciesDetail({ id, onBack }: SpeciesDetailProps) {
               </ul>
             </section>
 
-            {/* References */}
             <section className="card p-4">
               <div className="flex items-center gap-2 text-aqua-700">
                 <BookOpen className="h-5 w-5" />
-                <h2 className="text-sm font-bold uppercase tracking-wide">Referências bibliográficas</h2>
+                <h2 className="text-sm font-bold uppercase tracking-wide">Fontes verificadas</h2>
               </div>
-              <ul className="mt-2 space-y-2">
-                {data.references.map((r) => (
-                  <li key={r} className="text-xs leading-relaxed text-aqua-700">
-                    {r}
-                  </li>
-                ))}
-              </ul>
+              {materials.length > 0 ? (
+                <ul className="mt-2 space-y-2">
+                  {materials.map((item) => (
+                    <li key={item.id} className="text-xs leading-relaxed text-aqua-700">
+                      {item.author ? `${item.author}. ` : ''}
+                      {item.title}. {item.institution}, {item.year}.
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="mt-2 text-xs leading-relaxed text-aqua-700">
+                  Esta espécie ainda não possui materiais técnicos específicos verificados na Biblioteca.
+                </p>
+              )}
             </section>
           </div>
         )}

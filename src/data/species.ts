@@ -32,7 +32,6 @@ export interface Species {
   advantages: string[];
   disadvantages: string[];
   curiosities: string[];
-  references: string[];
 }
 
 export const species: Species[] = [
@@ -84,10 +83,6 @@ export const species: Species[] = [
       'É um dos peixes mais criados na Amazônia',
       'Pode ultrapassar 30 kg na natureza',
     ],
-    references: [
-      'Embrapa Pesca e Aquicultura. Cultivo de tambaqui. Cartilha técnica.',
-      'Valladão, G.R. et al. (2018). Parâmetros de qualidade da água no cultivo de tambaqui. Pesquisa Agropecuária Brasileira.',
-    ],
   },
   {
     id: 'tilapia',
@@ -137,10 +132,6 @@ export const species: Species[] = [
       'No Brasil, utiliza-se a reversão sexual para produzir apenas machos, que crescem mais',
       'Pode sobreviver em águas com baixíssimo oxigênio',
     ],
-    references: [
-      'Embrapa Pesca e Aquicultura. Cultivo de tilápia. Cartilha técnica.',
-      'Mainardes-Pinto, C.S.R. et al. (2018). Manejo alimentar da tilápia-do-nilo. Boletim do Instituto de Pesca.',
-    ],
   },
   {
     id: 'tambacu',
@@ -187,10 +178,6 @@ export const species: Species[] = [
       'O tambacu é estéril, pois é um híbrido interespecífico',
       'Combina características de duas espécies diferentes: tambaqui e pacu',
     ],
-    references: [
-      'Embrapa Pesca e Aquicultura. Hibridização entre tambaqui e pacu. Nota técnica.',
-      'Hashimoto, G.S.O. et al. (2011). Desempenho do híbrido tambacu. Revista Brasileira de Zootecnia.',
-    ],
   },
   {
     id: 'tambatinga',
@@ -229,9 +216,6 @@ export const species: Species[] = [
     ],
     curiosities: [
       'A tambatinga foi desenvolvida como alternativa ao tambacu em regiões com problemas de hipoplasia branquial',
-    ],
-    references: [
-      'Embrapa Pesca e Aquicultura. Produção de híbridos de tambaqui. Documentos técnicos.',
     ],
   },
   {
@@ -273,10 +257,6 @@ export const species: Species[] = [
     curiosities: [
       'O pacu tem dentes semelhantes aos humanos, adaptados para triturar sementes',
       'É uma das espécies mais pescadas no Pantanal',
-    ],
-    references: [
-      'Embrapa Pantanal. Cultivo de pacu em viveiros. Documentos técnicos.',
-      'CREVAL, G.H. et al. (2010). Nutrição e alimentação do pacu. Revista Brasileira de Zootecnia.',
     ],
   },
   {
@@ -327,10 +307,6 @@ export const species: Species[] = [
       'Sua língua óssea é usada como ralador por populações tradicionais',
       'Respira ar atmosférico obrigatoriamente',
     ],
-    references: [
-      'Embrapa Pesca e Aquicultura. Cultivo de pirarucu. Documentos técnicos.',
-      'Cavero, B.A.S. et al. (2015). Criação de pirarucu em cativeiro. Pesquisa Agropecuária Brasileira.',
-    ],
   },
   {
     id: 'pintado',
@@ -378,10 +354,6 @@ export const species: Species[] = [
       'O pintado é um dos peixes mais valorizados do Pantanal',
       'Suas manchas escuras são únicas como impressões digitais',
     ],
-    references: [
-      'Embrapa Pantanal. Cultivo de pintado em cativeiro. Documentos técnicos.',
-      'Padua, D.M.C. et al. (2012). Reprodução e larvicultura de pintado. Revista Brasileira de Zootecnia.',
-    ],
   },
   {
     id: 'cachara',
@@ -422,9 +394,6 @@ export const species: Species[] = [
     curiosities: [
       'A cachara e o pintado são tão semelhantes que frequentemente são comercializados juntos',
     ],
-    references: [
-      'Embrapa Pantanal. Cultivo de cachara. Documentos técnicos.',
-    ],
   },
   {
     id: 'jundia',
@@ -464,10 +433,6 @@ export const species: Species[] = [
     ],
     curiosities: [
       'O jundiá é uma das poucas espécies nativas adaptadas ao frio do sul do Brasil',
-    ],
-    references: [
-      'Epagri. Cultivo de jundiá em Santa Catarina. Documentos técnicos.',
-      'Franceschini, L. et al. (2014). Desempenho do jundiá em diferentes sistemas. Revista Brasileira de Zootecnia.',
     ],
   },
   {
@@ -510,9 +475,6 @@ export const species: Species[] = [
       'A matrinxã é muito procurada na pesca esportiva pela sua força',
       'Na natureza, alimenta-se de frutas e insetos',
     ],
-    references: [
-      'Embrapa Pesca e Aquicultura. Cultivo de matrinxã. Documentos técnicos.',
-    ],
   },
   {
     id: 'curimata',
@@ -553,9 +515,6 @@ export const species: Species[] = [
       'A curimatã se alimenta de lodo do fundo, ajudando a reciclar nutrientes',
       'É uma das espécies mais capturadas no Pantanal',
     ],
-    references: [
-      'Embrapa Pantanal. Policultivo com curimatã. Documentos técnicos.',
-    ],
   },
   {
     id: 'pirapitinga',
@@ -595,9 +554,6 @@ export const species: Species[] = [
     curiosities: [
       'A pirapitinga é frequentemente confundida com o pacu, mas é uma espécie diferente',
     ],
-    references: [
-      'Embrapa Pesca e Aquicultura. Cultivo de pirapitinga. Documentos técnicos.',
-    ],
   },
   {
     id: 'piau',
@@ -635,9 +591,6 @@ export const species: Species[] = [
     ],
     curiosities: [
       'O piau é conhecido pelas manchas amareladas no corpo',
-    ],
-    references: [
-      'Embrapa. Cultivo de piau. Documentos técnicos.',
     ],
   },
   {
@@ -678,9 +631,6 @@ export const species: Species[] = [
     ],
     curiosities: [
       'A traíra é uma predadora voraz e pode sobreviver fora da água por algumas horas',
-    ],
-    references: [
-      'Embrapa. Cultivo de traíra. Documentos técnicos.',
     ],
   },
   {
@@ -728,10 +678,6 @@ export const species: Species[] = [
       'O robalo é eurialino — vive tanto em água doce quanto no mar',
       'É um dos peixes marinhos mais valorizados do Brasil',
     ],
-    references: [
-      'Embrapa Pesca e Aquicultura. Cultivo de robalo. Documentos técnicos.',
-      'Cordeiro, N.M.A. et al. (2016). Reprodução e larvicultura de robalo. Pesquisa Agropecuária Brasileira.',
-    ],
   },
   {
     id: 'bijupira',
@@ -778,10 +724,6 @@ export const species: Species[] = [
     curiosities: [
       'O bijupirá pode crescer até 6 kg em apenas um ano',
       'É uma das espécies marinhas mais promissoras para aquicultura no Brasil',
-    ],
-    references: [
-      'Embrapa Pesca e Aquicultura. Cultivo de bijupirá. Documentos técnicos.',
-      'Sampaio, L.A. et al. (2015). Larvicultura de bijupirá. Revista Brasileira de Zootecnia.',
     ],
   },
   {
@@ -832,10 +774,6 @@ export const species: Species[] = [
       'O camarão marinho é o principal produto de exportação da aquicultura brasileira',
       'O Nordeste brasileiro é a principal região produtora',
     ],
-    references: [
-      'Embrapa Pesca e Aquicultura. Cultivo de camarão marinho. Documentos técnicos.',
-      'ABCC (Associação Brasileira de Criadores de Camarão). Manual de boas práticas na carcinicultura.',
-    ],
   },
   {
     id: 'camarao-amazonia',
@@ -877,10 +815,6 @@ export const species: Species[] = [
     curiosities: [
       'É uma das espécies mais consumidas na culinária amazônica',
       'O cultivo em cativeiro ainda é incipiente, mas tem grande potencial',
-    ],
-    references: [
-      'Embrapa Pesca e Aquicultura. Cultivo de camarão-da-amazônia. Documentos técnicos.',
-      'Moraes-Riodades, P.M.C. et al. (2014). Cultivo de Macrobrachium amazonicum. Revista Brasileira de Zootecnia.',
     ],
   },
   {
@@ -930,10 +864,6 @@ export const species: Species[] = [
       'Uma ostra pode filtrar até 50 litros de água por dia',
       'A ostreicultura é uma das atividades aquícolas mais sustentáveis',
     ],
-    references: [
-      'Embrapa Pesca e Aquicultura. Ostreicultura no Brasil. Documentos técnicos.',
-      'Epagri. Cultivo de ostras em Santa Catarina. Série didática.',
-    ],
   },
   {
     id: 'mexilhao',
@@ -981,10 +911,6 @@ export const species: Species[] = [
       'Santa Catarina responde por mais de 90% da produção nacional de mexilhão',
       'O mexilhão se fixa a substratos por filamentos chamados bisso',
     ],
-    references: [
-      'Embrapa Pesca e Aquicultura. Mitilicultura no Brasil. Documentos técnicos.',
-      'Epagri. Cultivo de mexilhão em Santa Catarina. Série didática.',
-    ],
   },
   {
     id: 'vieira',
@@ -1030,9 +956,6 @@ export const species: Species[] = [
     curiosities: [
       'A vieira é um dos moluscos mais valorizados na gastronomia',
       'A vieira-almofada é a espécie mais cultivada no Brasil',
-    ],
-    references: [
-      'Embrapa Pesca e Aquicultura. Cultivo de vieiras. Documentos técnicos.',
     ],
   },
   {
@@ -1082,10 +1005,6 @@ export const species: Species[] = [
       'A rã-touro é o anfíbio mais criado em cativeiro no mundo',
       'O couro da rã é usado para fabricar bolsas e cintos',
     ],
-    references: [
-      'Embrapa. Rã-cultura no Brasil. Documentos técnicos.',
-      'Ferreira, C.M. et al. (2010). Manejo na rã-cultura. Revista Brasileira de Zootecnia.',
-    ],
   },
   {
     id: 'kappaphycus',
@@ -1134,10 +1053,6 @@ export const species: Species[] = [
       'A carragena extraída de Kappaphycus é usada em sorvetes, iogurtes e cosméticos',
       'O cultivo de macroalgas é uma das atividades aquícolas mais sustentáveis',
     ],
-    references: [
-      'Embrapa Pesca e Aquicultura. Cultivo de macroalgas. Documentos técnicos.',
-      'Instituto de Pesca de São Paulo. Cultivo de Kappaphycus no Brasil. Série didática.',
-    ],
   },
   {
     id: 'gracilaria',
@@ -1179,10 +1094,6 @@ export const species: Species[] = [
     curiosities: [
       'O ágar extraído de Gracilaria é usado em meios de cultura laboratorial e em alimentos',
       'Gracilaria birdiae é uma espécie nativa do litoral brasileiro',
-    ],
-    references: [
-      'Embrapa Pesca e Aquicultura. Cultivo de Gracilaria. Documentos técnicos.',
-      'Ursi, C.A. et al. (2013). Cultivo de Gracilaria birdiae no Nordeste. Revista Brasileira de Farmacognosia.',
     ],
   },
 ];

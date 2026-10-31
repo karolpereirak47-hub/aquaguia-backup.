@@ -22,7 +22,9 @@ const typeMeta: Record<MaterialType, { icon: typeof FileText; label: string; tin
 const institutions = [
   'Todas',
   'Embrapa',
+  'Embrapa Amazônia Oriental',
   'Embrapa Amazônia Ocidental',
+  'Embrapa Amapá',
   'Embrapa Acre',
   'Embrapa Pesca e Aquicultura',
   'Embrapa Agroindústria de Alimentos',

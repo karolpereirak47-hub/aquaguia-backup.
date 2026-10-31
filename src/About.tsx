@@ -56,9 +56,9 @@ export function About({ onBack }: { onBack: () => void }) {
         <div className="card p-5">
           <h3 className="text-sm font-bold text-aqua-900">Fontes e referências</h3>
           <p className="mt-2 text-sm leading-relaxed text-aqua-800">
-            Todas as informações são baseadas em publicações de instituições brasileiras reconhecidas, como
-            Embrapa, Epagri, SciELO Brasil e Ministério da Pesca e Aquicultura. Cada espécie e material cita
-            sua fonte correspondente.
+            As informações sobre espécies são de caráter geral. Os materiais da Biblioteca são publicações
+            reais da Embrapa, verificadas pelo link oficial. Nem todas as espécies possuem material técnico
+            específico cadastrado; quando não há, a ficha da espécie informa isso.
           </p>
         </div>
 
