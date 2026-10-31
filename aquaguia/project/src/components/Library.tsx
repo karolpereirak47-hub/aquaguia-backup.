@@ -25,9 +25,7 @@ const institutions = [
   'Embrapa Amazônia Ocidental',
   'Embrapa Acre',
   'Embrapa Pesca e Aquicultura',
-  'Epagri',
-  'Ministério da Pesca e Aquicultura',
-  'Ministério da Agricultura e Pecuária (MAPA)',
+  'Embrapa Agroindústria de Alimentos',
 ];
 
 export function Library({ onBack }: { onBack: () => void }) {
