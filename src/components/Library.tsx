@@ -27,6 +27,7 @@ const institutions = [
   'Embrapa Amapá',
   'Embrapa Acre',
   'Embrapa Pesca e Aquicultura',
+  'Embrapa Meio Ambiente',
   'Embrapa Agroindústria de Alimentos',
   'Ministério da Pesca e Aquicultura',
 ];
@@ -38,6 +39,10 @@ export function Library({ onBack }: { onBack: () => void }) {
   const [typeFilter, setTypeFilter] = useState<MaterialType | 'todos'>('todos');
   const [showFilters, setShowFilters] = useState(false);
   const { isFavorite, toggle } = useFavorites();
+  const availableCategories = useMemo(
+    () => libraryCategories.filter((c) => libraryItems.some((item) => item.category === c.id)),
+    [],
+  );
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -81,7 +86,7 @@ export function Library({ onBack }: { onBack: () => void }) {
           >
             Todas
           </button>
-          {libraryCategories.map((c) => (
+          {availableCategories.map((c) => (
             <button
               key={c.id}
               onClick={() => setCategory(c.id)}

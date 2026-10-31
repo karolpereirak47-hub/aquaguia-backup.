@@ -188,6 +188,52 @@ export const libraryItems: LibraryItem[] = [
     hasPdf: true,
     hasVideo: false,
   },
+  {
+    id: 'lib-030',
+    title: 'Discussão sobre a regularização da piscicultura brasileira: da produção à comercialização',
+    institution: 'Embrapa Pesca e Aquicultura',
+    year: '2016',
+    abstract:
+      'Discussão sobre os passos para regularizar a piscicultura, do licenciamento ambiental à comercialização do pescado, com os entraves enfrentados pelos produtores.',
+    category: 'legislacao',
+    speciesRelated: [],
+    subject: 'Regularização da piscicultura',
+    type: 'artigo',
+    url: 'https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1058730/1/CNPASA2016doc31.pdf',
+    hasPdf: true,
+    hasVideo: false,
+  },
+  {
+    id: 'lib-031',
+    title: 'Boas práticas sanitárias na piscicultura familiar: prevenção de doenças',
+    institution: 'Embrapa Pesca e Aquicultura',
+    author: 'Silva, W. de S. e; Lima, L. K. F. de; Sousa, D. N. de; Maciel-Honda, P. O.',
+    year: '2024',
+    abstract:
+      'Cartilha sobre boas práticas de manejo e sanidade para prevenir doenças nos peixes da piscicultura familiar.',
+    category: 'sanidade',
+    speciesRelated: [],
+    subject: 'Prevenção de doenças em peixes',
+    type: 'cartilha',
+    url: 'https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1166909/1/Cartilha-boas-praticas-2024.pdf',
+    hasPdf: true,
+    hasVideo: false,
+  },
+  {
+    id: 'lib-032',
+    title: 'Recomendações práticas para avaliação da qualidade da água na produção de tilápia em tanques-redes',
+    institution: 'Embrapa Meio Ambiente',
+    year: '2021',
+    abstract:
+      'Circular técnica com boas práticas de manejo para a criação de tilápia em tanques-rede em reservatórios rurais, incluindo a avaliação da qualidade da água.',
+    category: 'qualidade-agua',
+    speciesRelated: ['tilapia'],
+    subject: 'Qualidade da água em tanques-rede',
+    type: 'manual',
+    url: 'https://www.embrapa.br/en/busca-de-publicacoes/-/publicacao/1131162/recomendacoes-praticas-para-avaliacao-da-qualidade-da-agua-na-producao-de-tilapia-em-tanques-redes',
+    hasPdf: true,
+    hasVideo: false,
+  },
 ];
 
 export function getLibraryBySpecies(speciesId: string): LibraryItem[] {
