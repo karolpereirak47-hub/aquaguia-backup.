@@ -19,25 +19,9 @@ const typeMeta: Record<MaterialType, { icon: typeof FileText; label: string; tin
   legislacao: { icon: FileText, label: 'Legislação', tint: 'bg-accent-100 text-accent-700' },
 };
 
-const institutions = [
-  'Todas',
-  'Embrapa',
-  'Embrapa Amazônia Oriental',
-  'Embrapa Amazônia Ocidental',
-  'Embrapa Amapá',
-  'Embrapa Acre',
-  'Embrapa Pesca e Aquicultura',
-  'Embrapa Meio Ambiente',
-  'Embrapa Agroindústria de Alimentos',
-  'Ministério da Pesca e Aquicultura',
-];
-
 export function Library({ onBack }: { onBack: () => void }) {
   const [query, setQuery] = useState('');
   const [category, setCategory] = useState<LibraryCategory | 'todas'>('todas');
-  const [institution, setInstitution] = useState('Todas');
-  const [typeFilter, setTypeFilter] = useState<MaterialType | 'todos'>('todos');
-  const [showFilters, setShowFilters] = useState(false);
   const { isFavorite, toggle } = useFavorites();
   const availableCategories = useMemo(
     () => libraryCategories.filter((c) => libraryItems.some((item) => item.category === c.id)),
@@ -48,8 +32,6 @@ export function Library({ onBack }: { onBack: () => void }) {
     const q = query.trim().toLowerCase();
     return libraryItems.filter((item) => {
       const matchesCat = category === 'todas' || item.category === category;
-      const matchesInst = institution === 'Todas' || item.institution.includes(institution);
-      const matchesType = typeFilter === 'todos' || item.type === typeFilter;
       const matchesQuery =
         !q ||
         item.title.toLowerCase().includes(q) ||
@@ -57,9 +39,9 @@ export function Library({ onBack }: { onBack: () => void }) {
         item.subject.toLowerCase().includes(q) ||
         item.institution.toLowerCase().includes(q) ||
         (item.author?.toLowerCase().includes(q) ?? false);
-      return matchesCat && matchesInst && matchesType && matchesQuery;
+      return matchesCat && matchesQuery;
     });
-  }, [query, category, institution, typeFilter]);
+  }, [query, category]);
 
   return (
     <div className="flex min-h-full flex-col">
@@ -98,46 +80,6 @@ export function Library({ onBack }: { onBack: () => void }) {
             </button>
           ))}
         </div>
-
-        {/* Toggle filters */}
-        <button
-          onClick={() => setShowFilters(!showFilters)}
-          className="mb-3 text-xs font-semibold text-aqua-600 underline"
-        >
-          {showFilters ? 'Ocultar filtros' : 'Mostrar filtros avançados'}
-        </button>
-
-        {showFilters && (
-          <div className="card mb-4 space-y-3 p-4">
-            <label className="block">
-              <span className="text-xs font-medium text-aqua-700">Instituição</span>
-              <select
-                value={institution}
-                onChange={(e) => setInstitution(e.target.value)}
-                className="field mt-1 text-sm"
-              >
-                {institutions.map((i) => (
-                  <option key={i} value={i}>{i}</option>
-                ))}
-              </select>
-            </label>
-            <label className="block">
-              <span className="text-xs font-medium text-aqua-700">Tipo de material</span>
-              <select
-                value={typeFilter}
-                onChange={(e) => setTypeFilter(e.target.value as MaterialType | 'todos')}
-                className="field mt-1 text-sm"
-              >
-                <option value="todos">Todos</option>
-                <option value="artigo">Artigo</option>
-                <option value="cartilha">Cartilha</option>
-                <option value="manual">Manual</option>
-                <option value="video">Vídeo</option>
-                <option value="legislacao">Legislação</option>
-              </select>
-            </label>
-          </div>
-        )}
 
         {/* Results */}
         {filtered.length === 0 ? (
