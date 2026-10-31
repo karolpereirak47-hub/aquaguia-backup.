@@ -26,7 +26,6 @@ const institutions = [
   'Embrapa Acre',
   'Embrapa Pesca e Aquicultura',
   'Epagri',
-  'SciELO Brasil',
   'Ministério da Pesca e Aquicultura',
   'Ministério da Agricultura e Pecuária (MAPA)',
 ];
