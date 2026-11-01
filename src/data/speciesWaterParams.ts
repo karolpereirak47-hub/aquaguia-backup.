@@ -8,7 +8,6 @@ export interface ParamRange {
 
 export interface SpeciesWaterParams {
   speciesId: string;
-  source: string;
   temperature: ParamRange;
   ph: ParamRange;
   oxygen: ParamRange;
@@ -23,8 +22,6 @@ export interface SpeciesWaterParams {
 export const speciesWaterParams: SpeciesWaterParams[] = [
   {
     speciesId: 'tambaqui',
-    source:
-      'Embrapa Pesca e Aquicultura — Cultivo de tambaqui (Colossoma macropomum). Boletim de Pesquisa e Desenvolvimento.',
     temperature: { min: 28, max: 32, warningLow: 25, warningHigh: 33, unit: '°C' },
     ph: { min: 5.0, max: 6.5, warningLow: 4.5, warningHigh: 7.5, unit: '' },
     oxygen: { min: 2, max: 8, warningLow: 1, warningHigh: 10, unit: 'mg/L' },
@@ -36,8 +33,6 @@ export const speciesWaterParams: SpeciesWaterParams[] = [
   },
   {
     speciesId: 'tilapia',
-    source:
-      'Embrapa Pesca e Aquicultura — Cultivo de tilápia-do-nilo (Oreochromis niloticus). Circular Técnica 141.',
     temperature: { min: 27, max: 32, warningLow: 22, warningHigh: 34, unit: '°C' },
     ph: { min: 6.5, max: 9.0, warningLow: 6.0, warningHigh: 9.5, unit: '' },
     oxygen: { min: 3, max: 8, warningLow: 1.5, warningHigh: 10, unit: 'mg/L' },
@@ -49,8 +44,6 @@ export const speciesWaterParams: SpeciesWaterParams[] = [
   },
   {
     speciesId: 'tambacu',
-    source:
-      'Embrapa Pesca e Aquicultura — Hibridação de tambaqui x pacu. Documentos 42.',
     temperature: { min: 26, max: 30, warningLow: 24, warningHigh: 32, unit: '°C' },
     ph: { min: 5.5, max: 7.0, warningLow: 5.0, warningHigh: 7.5, unit: '' },
     oxygen: { min: 3, max: 8, warningLow: 2, warningHigh: 10, unit: 'mg/L' },
@@ -62,8 +55,6 @@ export const speciesWaterParams: SpeciesWaterParams[] = [
   },
   {
     speciesId: 'tambatinga',
-    source:
-      'Embrapa Pesca e Aquicultura — Hibridação de tambaqui x pirapitinga. Documentos 47.',
     temperature: { min: 27, max: 32, warningLow: 25, warningHigh: 33, unit: '°C' },
     ph: { min: 5.0, max: 6.5, warningLow: 4.5, warningHigh: 7.5, unit: '' },
     oxygen: { min: 2, max: 8, warningLow: 1, warningHigh: 10, unit: 'mg/L' },
@@ -75,8 +66,6 @@ export const speciesWaterParams: SpeciesWaterParams[] = [
   },
   {
     speciesId: 'pacu',
-    source:
-      'Embrapa Pantanal — Cultivo de pacu (Piaractus mesopotamicus). Circular Técnica 53.',
     temperature: { min: 24, max: 28, warningLow: 22, warningHigh: 30, unit: '°C' },
     ph: { min: 6.0, max: 7.5, warningLow: 5.5, warningHigh: 8.0, unit: '' },
     oxygen: { min: 4, max: 8, warningLow: 3, warningHigh: 10, unit: 'mg/L' },
@@ -88,8 +77,6 @@ export const speciesWaterParams: SpeciesWaterParams[] = [
   },
   {
     speciesId: 'pirarucu',
-    source:
-      'Embrapa Pesca e Aquicultura — Cultivo de pirarucu (Arapaima gigas). Documentos 110.',
     temperature: { min: 28, max: 32, warningLow: 26, warningHigh: 34, unit: '°C' },
     ph: { min: 6.0, max: 7.0, warningLow: 5.5, warningHigh: 7.5, unit: '' },
     oxygen: { min: 0, max: 8, warningLow: 0, warningHigh: 10, unit: 'mg/L' },
@@ -101,8 +88,6 @@ export const speciesWaterParams: SpeciesWaterParams[] = [
   },
   {
     speciesId: 'pintado',
-    source:
-      'Embrapa Pantanal — Cultivo de pintado (Pseudoplatystoma corruscans). Circular Técnica 61.',
     temperature: { min: 22, max: 28, warningLow: 20, warningHigh: 30, unit: '°C' },
     ph: { min: 6.0, max: 7.5, warningLow: 5.5, warningHigh: 8.0, unit: '' },
     oxygen: { min: 5, max: 9, warningLow: 4, warningHigh: 10, unit: 'mg/L' },
@@ -114,8 +99,6 @@ export const speciesWaterParams: SpeciesWaterParams[] = [
   },
   {
     speciesId: 'cachara',
-    source:
-      'Embrapa Pantanal — Cultivo de cachara (Pseudoplatystoma reticulatum). Documentos 88.',
     temperature: { min: 24, max: 30, warningLow: 22, warningHigh: 32, unit: '°C' },
     ph: { min: 6.0, max: 7.5, warningLow: 5.5, warningHigh: 8.0, unit: '' },
     oxygen: { min: 5, max: 9, warningLow: 4, warningHigh: 10, unit: 'mg/L' },
@@ -127,8 +110,6 @@ export const speciesWaterParams: SpeciesWaterParams[] = [
   },
   {
     speciesId: 'jundia',
-    source:
-      'Epagri — Cultivo de jundiá (Rhamdia quelen). Sistemas de Produção de Peixes no Sul do Brasil.',
     temperature: { min: 18, max: 23, warningLow: 15, warningHigh: 26, unit: '°C' },
     ph: { min: 6.5, max: 8.0, warningLow: 6.0, warningHigh: 8.5, unit: '' },
     oxygen: { min: 5, max: 9, warningLow: 4, warningHigh: 10, unit: 'mg/L' },
@@ -140,8 +121,6 @@ export const speciesWaterParams: SpeciesWaterParams[] = [
   },
   {
     speciesId: 'matrinxa',
-    source:
-      'Embrapa Pesca e Aquicultura — Cultivo de matrinxã (Brycon amazonicus). Documentos 33.',
     temperature: { min: 24, max: 28, warningLow: 22, warningHigh: 30, unit: '°C' },
     ph: { min: 6.0, max: 7.0, warningLow: 5.5, warningHigh: 7.5, unit: '' },
     oxygen: { min: 5, max: 9, warningLow: 4, warningHigh: 10, unit: 'mg/L' },
@@ -153,8 +132,6 @@ export const speciesWaterParams: SpeciesWaterParams[] = [
   },
   {
     speciesId: 'curimata',
-    source:
-      'Embrapa Pantanal — Cultivo de curimatã (Prochilodus lineatus). Circular Técnica 27.',
     temperature: { min: 22, max: 28, warningLow: 20, warningHigh: 30, unit: '°C' },
     ph: { min: 6.5, max: 8.0, warningLow: 6.0, warningHigh: 8.5, unit: '' },
     oxygen: { min: 4, max: 8, warningLow: 3, warningHigh: 10, unit: 'mg/L' },
@@ -166,8 +143,6 @@ export const speciesWaterParams: SpeciesWaterParams[] = [
   },
   {
     speciesId: 'pirapitinga',
-    source:
-      'Embrapa Pesca e Aquicultura — Cultivo de pirapitinga (Piaractus brachypomus). Documentos 39.',
     temperature: { min: 26, max: 32, warningLow: 24, warningHigh: 33, unit: '°C' },
     ph: { min: 5.0, max: 6.5, warningLow: 4.5, warningHigh: 7.5, unit: '' },
     oxygen: { min: 2, max: 8, warningLow: 1, warningHigh: 10, unit: 'mg/L' },
@@ -179,8 +154,6 @@ export const speciesWaterParams: SpeciesWaterParams[] = [
   },
   {
     speciesId: 'piau',
-    source:
-      'Embrapa — Cultivo de piau (Leporinus spp.). Sistemas de Produção.',
     temperature: { min: 22, max: 28, warningLow: 20, warningHigh: 30, unit: '°C' },
     ph: { min: 6.0, max: 7.5, warningLow: 5.5, warningHigh: 8.0, unit: '' },
     oxygen: { min: 5, max: 9, warningLow: 4, warningHigh: 10, unit: 'mg/L' },
@@ -192,8 +165,6 @@ export const speciesWaterParams: SpeciesWaterParams[] = [
   },
   {
     speciesId: 'traira',
-    source:
-      'Embrapa — Cultivo de traíra (Hoplias spp.). Circular Técnica sobre espécies nativas resistentes.',
     temperature: { min: 22, max: 28, warningLow: 18, warningHigh: 32, unit: '°C' },
     ph: { min: 5.5, max: 7.5, warningLow: 5.0, warningHigh: 8.5, unit: '' },
     oxygen: { min: 1, max: 8, warningLow: 0.5, warningHigh: 10, unit: 'mg/L' },
@@ -205,8 +176,6 @@ export const speciesWaterParams: SpeciesWaterParams[] = [
   },
   {
     speciesId: 'robalo',
-    source:
-      'Embrapa Pesca e Aquicultura — Cultivo de robalo (Centropomus spp.). Documentos 104.',
     temperature: { min: 25, max: 30, warningLow: 23, warningHigh: 32, unit: '°C' },
     ph: { min: 7.5, max: 8.5, warningLow: 7.0, warningHigh: 9.0, unit: '' },
     oxygen: { min: 5, max: 9, warningLow: 4, warningHigh: 10, unit: 'mg/L' },
@@ -219,8 +188,6 @@ export const speciesWaterParams: SpeciesWaterParams[] = [
   },
   {
     speciesId: 'bijupira',
-    source:
-      'Embrapa Pesca e Aquicultura — Cultivo de bijupirá (Rachycentron canadum). Documentos 132.',
     temperature: { min: 25, max: 30, warningLow: 23, warningHigh: 32, unit: '°C' },
     ph: { min: 7.5, max: 8.5, warningLow: 7.0, warningHigh: 9.0, unit: '' },
     oxygen: { min: 5, max: 9, warningLow: 4, warningHigh: 10, unit: 'mg/L' },
@@ -233,8 +200,6 @@ export const speciesWaterParams: SpeciesWaterParams[] = [
   },
   {
     speciesId: 'camarao-marinho',
-    source:
-      'ABCC/Embrapa — Cultivo de camarão marinho (Litopenaeus vannamei). Manual de Boas Práticas de Manejo.',
     temperature: { min: 28, max: 32, warningLow: 26, warningHigh: 34, unit: '°C' },
     ph: { min: 7.5, max: 8.5, warningLow: 7.0, warningHigh: 9.0, unit: '' },
     oxygen: { min: 4, max: 8, warningLow: 3, warningHigh: 10, unit: 'mg/L' },
@@ -247,8 +212,6 @@ export const speciesWaterParams: SpeciesWaterParams[] = [
   },
   {
     speciesId: 'camarao-amazonia',
-    source:
-      'Embrapa Pesca e Aquicultura — Cultivo de camarão-da-amazônia (Macrobrachium amazonicum). Documentos 125.',
     temperature: { min: 26, max: 30, warningLow: 24, warningHigh: 32, unit: '°C' },
     ph: { min: 6.5, max: 8.0, warningLow: 6.0, warningHigh: 8.5, unit: '' },
     oxygen: { min: 4, max: 8, warningLow: 3, warningHigh: 10, unit: 'mg/L' },
@@ -261,8 +224,6 @@ export const speciesWaterParams: SpeciesWaterParams[] = [
   },
   {
     speciesId: 'ostra',
-    source:
-      'Epagri — Ostreicultura em Santa Catarina (Crassostrea gasar/gigas). Manual de Cultivo de Ostras.',
     temperature: { min: 20, max: 28, warningLow: 18, warningHigh: 30, unit: '°C' },
     ph: { min: 7.5, max: 8.5, warningLow: 7.0, warningHigh: 9.0, unit: '' },
     oxygen: { min: 5, max: 9, warningLow: 4, warningHigh: 10, unit: 'mg/L' },
@@ -275,8 +236,6 @@ export const speciesWaterParams: SpeciesWaterParams[] = [
   },
   {
     speciesId: 'mexilhao',
-    source:
-      'Epagri — Mitilicultura em Santa Catarina (Perna perna). Manual de Cultivo de Mexilhões.',
     temperature: { min: 15, max: 25, warningLow: 12, warningHigh: 28, unit: '°C' },
     ph: { min: 7.5, max: 8.5, warningLow: 7.0, warningHigh: 9.0, unit: '' },
     oxygen: { min: 5, max: 9, warningLow: 4, warningHigh: 10, unit: 'mg/L' },
@@ -289,8 +248,6 @@ export const speciesWaterParams: SpeciesWaterParams[] = [
   },
   {
     speciesId: 'vieira',
-    source:
-      'Embrapa Pesca e Aquicultura — Cultivo de vieira (Nodipecten nodosus). Documentos 143.',
     temperature: { min: 20, max: 26, warningLow: 18, warningHigh: 28, unit: '°C' },
     ph: { min: 7.5, max: 8.5, warningLow: 7.0, warningHigh: 9.0, unit: '' },
     oxygen: { min: 5, max: 9, warningLow: 4, warningHigh: 10, unit: 'mg/L' },
@@ -303,8 +260,6 @@ export const speciesWaterParams: SpeciesWaterParams[] = [
   },
   {
     speciesId: 'ra-touro',
-    source:
-      'Embrapa — Ranicultura: cultivo de rã-touro (Lithobates catesbeianus). Circular Técnica 6.',
     temperature: { min: 24, max: 30, warningLow: 22, warningHigh: 32, unit: '°C' },
     ph: { min: 6.5, max: 8.0, warningLow: 6.0, warningHigh: 8.5, unit: '' },
     oxygen: { min: 4, max: 8, warningLow: 3, warningHigh: 10, unit: 'mg/L' },
@@ -316,8 +271,6 @@ export const speciesWaterParams: SpeciesWaterParams[] = [
   },
   {
     speciesId: 'kappaphycus',
-    source:
-      'Embrapa Pesca e Aquicultura — Cultivo de macroalgas (Kappaphycus alvarezii). Documentos 118.',
     temperature: { min: 25, max: 30, warningLow: 23, warningHigh: 32, unit: '°C' },
     ph: { min: 7.5, max: 8.5, warningLow: 7.0, warningHigh: 9.0, unit: '' },
     oxygen: { min: 5, max: 9, warningLow: 4, warningHigh: 10, unit: 'mg/L' },
@@ -330,8 +283,6 @@ export const speciesWaterParams: SpeciesWaterParams[] = [
   },
   {
     speciesId: 'gracilaria',
-    source:
-      'Embrapa Pesca e Aquicultura — Cultivo de Gracilaria birdiae. Documentos 129.',
     temperature: { min: 24, max: 30, warningLow: 22, warningHigh: 32, unit: '°C' },
     ph: { min: 7.5, max: 8.5, warningLow: 7.0, warningHigh: 9.0, unit: '' },
     oxygen: { min: 4, max: 9, warningLow: 3, warningHigh: 10, unit: 'mg/L' },
