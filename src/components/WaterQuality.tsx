@@ -8,7 +8,6 @@ import { Header } from './Header';
 import { WaterIcon } from './icons/WaterIcon';
 import { waterParams } from '../data/waterQuality';
 import { species } from '../data/species';
-import { getLibraryBySpecies } from '../data/library';
 import {
   getSpeciesWaterParams, analyzeParam, getParamDirection, getParamGuidance,
   type ParamStatus, type ParamRange,
@@ -125,7 +124,6 @@ function WaterAnalyzer() {
 
   const params = useMemo(() => getSpeciesWaterParams(selectedSpecies), [selectedSpecies]);
   const speciesData = species.find((s) => s.id === selectedSpecies);
-  const materials = useMemo(() => getLibraryBySpecies(selectedSpecies), [selectedSpecies]);
 
   const results = useMemo(() => {
     if (!params) return [];
@@ -213,24 +211,6 @@ function WaterAnalyzer() {
           Ainda não há faixas ideais cadastradas para {speciesData?.name}. A análise de valores não está disponível para esta espécie.
         </p>
       )}
-
-      <div className="card p-3">
-        <p className="text-xs font-bold uppercase tracking-wide text-aqua-600">Fontes para {speciesData?.name}</p>
-        {materials.length > 0 ? (
-          <ul className="mt-2 space-y-2">
-            {materials.map((m) => (
-              <li key={m.id} className="text-xs text-aqua-800">
-                <span className="font-semibold">{m.title}</span>
-                <span className="text-aqua-600"> ({m.institution}, {m.year})</span>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p className="mt-2 text-xs text-aqua-600">
-            Não há fonte específica verificada cadastrada para {speciesData?.name} na Biblioteca.
-          </p>
-        )}
-      </div>
 
       {/* Input fields */}
       <div className="card space-y-3 p-4">
