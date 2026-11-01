@@ -1,15 +1,16 @@
 import { useMemo, useState } from 'react';
-import { Calculator, Fish, Layers, Ruler, Wheat } from 'lucide-react';
+import { Calculator, Fish, Layers, Ruler, Square, Wheat } from 'lucide-react';
 import { Header } from './Header';
 import { species } from '../data/species';
 import { getFoodTable, detectPhase } from '../data/foodTables';
 
-type CalcId = 'racao' | 'biomassa' | 'densidade' | 'volume';
+type CalcId = 'racao' | 'biomassa' | 'densidade' | 'area' | 'volume';
 
 const calculators: { id: CalcId; label: string; icon: typeof Fish; tint: string }[] = [
   { id: 'racao', label: 'Ração por Espécie', icon: Wheat, tint: 'from-teal-500 to-aqua-600' },
   { id: 'biomassa', label: 'Biomassa', icon: Fish, tint: 'from-aqua-500 to-deep-600' },
   { id: 'densidade', label: 'Densidade', icon: Layers, tint: 'from-accent-500 to-teal-600' },
+  { id: 'area', label: 'Área do Viveiro', icon: Square, tint: 'from-aqua-500 to-teal-600' },
   { id: 'volume', label: 'Volume do Viveiro', icon: Ruler, tint: 'from-deep-500 to-aqua-600' },
 ];
 
@@ -63,6 +64,10 @@ export function Calculadoras({ onBack }: { onBack: () => void }) {
   const [areaViveiro, setAreaViveiro] = useState('');
   const [qtdPeixes, setQtdPeixes] = useState('');
 
+  // area
+  const [areaComp, setAreaComp] = useState('');
+  const [areaLarg, setAreaLarg] = useState('');
+
   // volume
   const [comp, setComp] = useState('');
   const [larg, setLarg] = useState('');
@@ -108,8 +113,19 @@ export function Calculadoras({ onBack }: { onBack: () => void }) {
     const l = parseFloat(larg);
     const p = parseFloat(prof);
     if (!c || !l || !p || c <= 0 || l <= 0 || p <= 0) return null;
-    return (c * l * p).toFixed(2);
+    const volume = c * l * p;
+    return {
+      m3: volume.toFixed(2),
+      litros: (volume * 1000).toLocaleString('pt-BR', { maximumFractionDigits: 0 }),
+    };
   }, [comp, larg, prof]);
+
+  const areaResult = useMemo(() => {
+    const c = parseFloat(areaComp);
+    const l = parseFloat(areaLarg);
+    if (!c || !l || c <= 0 || l <= 0) return null;
+    return (c * l).toFixed(2);
+  }, [areaComp, areaLarg]);
 
   return (
     <div className="flex min-h-full flex-col">
@@ -249,6 +265,34 @@ export function Calculadoras({ onBack }: { onBack: () => void }) {
             </>
           )}
 
+          {active === 'area' && (
+            <>
+              <div className="flex items-center gap-2 text-aqua-700">
+                <Square className="h-5 w-5" />
+                <h2 className="font-bold">Área do Viveiro</h2>
+              </div>
+              <NumberField
+                label="Comprimento"
+                unit="m"
+                value={areaComp}
+                onChange={setAreaComp}
+                hint="Digite o comprimento em metros (ex: 50 = 50 m)"
+              />
+              <NumberField
+                label="Largura"
+                unit="m"
+                value={areaLarg}
+                onChange={setAreaLarg}
+                hint="Digite a largura em metros (ex: 20 = 20 m)"
+              />
+              {areaResult ? (
+                <ResultCard label="Área" value={areaResult} unit="m²" hint="Área = comprimento × largura." />
+              ) : (
+                <p className="text-sm text-aqua-500">Preencha os campos para ver o resultado em m².</p>
+              )}
+            </>
+          )}
+
           {active === 'volume' && (
             <>
               <div className="flex items-center gap-2 text-deep-700">
@@ -277,7 +321,10 @@ export function Calculadoras({ onBack }: { onBack: () => void }) {
                 hint="Digite a profundidade em metros (ex: 1,5 = 1,5 m)"
               />
               {volumeResult ? (
-                <ResultCard label="Volume" value={volumeResult} unit="m³" hint="1 m³ equivale a 1.000 litros." />
+                <div className="space-y-3">
+                  <ResultCard label="Volume" value={volumeResult.m3} unit="m³" hint="Volume = comprimento × largura × profundidade média." />
+                  <SimpleRow label="Volume em litros" value={`${volumeResult.litros} L`} hint="1 m³ equivale a 1.000 litros." />
+                </div>
               ) : (
                 <p className="text-sm text-aqua-500">Preencha os campos para ver o resultado em m³.</p>
               )}
