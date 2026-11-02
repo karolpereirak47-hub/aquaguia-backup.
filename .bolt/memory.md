@@ -19,7 +19,11 @@
 - Library supports filtering by institution and category/type.
 - Preserve the library data file’s exported types and categories when modifying the library.
 - Analysis UI should make the selected species clear throughout the workflow and result summary.
-- The species selector in “Analisar meu viveiro” still displays the text **“categoria”**, which should be removed or corrected in a follow-up change.
+- The pond calculator now offers format selection for **retangular, circular, or irregular** ponds.
+- Calculator fields adapt to the selected format: length/width for rectangular, diameter for circular, and manually entered area for irregular ponds.
+- Calculator results show area in m² and volume in m³ and liters, with the applied formula displayed.
+- Existing pond calculator functionality and unrelated tabs, including feed, biomass, and density, should remain unchanged.
+- The species selector in “Analisar meu viveiro” may still need visual/text review; the previously reported “categoria” issue was not reproduced in the latest code inspection.
 
 ## Decisions, constraints & rationale
 
@@ -35,9 +39,10 @@
 - Unverifiable per-species citations were removed from the analysis screen.
 - The 24 replacement species images from the provided archive are stored in the project and wired through `src/data/species.ts`; the previous Pexels URLs are no longer used for those species.
 - A backup copy of the image archive exists in a separate project folder.
-- The project build passed after the image replacement and species-photo mapping changes.
+- Pond geometry calculations were separated into a dedicated formulas module and integrated into the calculator.
+- Build passed after the pond calculator changes and after reverting an unintended class change in the feed-tab selector.
 - Type-checking has not been confirmed because dependencies were unavailable in an earlier environment.
-- The image replacement did not intentionally change other app features.
+- The image replacement and pond calculator work did not intentionally change other app features.
 
 ## Open questions & assumptions
 
@@ -47,4 +52,6 @@
 - The rebuilt library file was not compared fully with its previous version; review for unintentionally lost content.
 - Verification of additional links and document discovery was blocked by a tool session limit and requires a new session.
 - Analysis corrections have not been visually tested in a browser; validation was based on code reading.
-- The remaining “categoria” label in the species selector needs a follow-up correction.
+- The reported “categoria” text and selector contrast issue could not be located without a reproducible screenshot or precise location.
+- Cards for Jundiá and Matrinxã reportedly show category badges; whether those badges should be replaced with only the species name remains unresolved.
+- Two ZIP copies of the species-photo archive may still be present in the project’s image folder; removal has not been confirmed.

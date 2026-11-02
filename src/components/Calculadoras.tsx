@@ -3,6 +3,9 @@ import { Calculator, Fish, Layers, Ruler, Square, Wheat } from 'lucide-react';
 import { Header } from './Header';
 import { species } from '../data/species';
 import { getFoodTable, detectPhase } from '../data/foodTables';
+import {
+  pondAreaM2, pondShapeIds, pondShapeInfo, type PondShape, type PondValues,
+} from './pondGeometry';
 
 type CalcId = 'racao' | 'biomassa' | 'densidade' | 'area' | 'volume';
 
@@ -48,6 +51,76 @@ function ResultCard({ label, value, unit, hint }: { label: string; value: string
   );
 }
 
+function ShapeSelector({ value, onChange }: { value: PondShape; onChange: (s: PondShape) => void }) {
+  return (
+    <div>
+      <span className="text-sm font-medium text-aqua-800">Formato do viveiro</span>
+      <div className="mt-1 grid grid-cols-3 gap-2">
+        {pondShapeIds.map((id) => (
+          <button
+            key={id}
+            type="button"
+            onClick={() => onChange(id)}
+            aria-pressed={value === id}
+            className={`rounded-xl px-3 py-2.5 text-sm font-semibold transition active:scale-[0.98] ${
+              value === id ? 'bg-aqua-700 text-white shadow-soft' : 'bg-aqua-50 text-aqua-800 ring-1 ring-aqua-200'
+            }`}
+          >
+            {pondShapeInfo[id].label}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function PondInputs({
+  shape, values, onChange,
+}: {
+  shape: PondShape; values: PondValues; onChange: (key: keyof PondValues, value: string) => void;
+}) {
+  if (shape === 'circular') {
+    return (
+      <NumberField
+        label="Diâmetro"
+        unit="m"
+        value={values.diametro}
+        onChange={(v) => onChange('diametro', v)}
+        hint="Medida de uma borda à outra, passando pelo centro (ex: 30 = 30 m)"
+      />
+    );
+  }
+  if (shape === 'irregular') {
+    return (
+      <NumberField
+        label="Área do viveiro"
+        unit="m²"
+        value={values.area}
+        onChange={(v) => onChange('area', v)}
+        hint="Informe a área medida ou estimada (ex: 450 = 450 m²)"
+      />
+    );
+  }
+  return (
+    <>
+      <NumberField
+        label="Comprimento"
+        unit="m"
+        value={values.comprimento}
+        onChange={(v) => onChange('comprimento', v)}
+        hint="Digite o comprimento em metros (ex: 50 = 50 m)"
+      />
+      <NumberField
+        label="Largura"
+        unit="m"
+        value={values.largura}
+        onChange={(v) => onChange('largura', v)}
+        hint="Digite a largura em metros (ex: 20 = 20 m)"
+      />
+    </>
+  );
+}
+
 export function Calculadoras({ onBack }: { onBack: () => void }) {
   const [active, setActive] = useState<CalcId>('racao');
 
@@ -64,14 +137,13 @@ export function Calculadoras({ onBack }: { onBack: () => void }) {
   const [areaViveiro, setAreaViveiro] = useState('');
   const [qtdPeixes, setQtdPeixes] = useState('');
 
-  // area
-  const [areaComp, setAreaComp] = useState('');
-  const [areaLarg, setAreaLarg] = useState('');
-
-  // volume
-  const [comp, setComp] = useState('');
-  const [larg, setLarg] = useState('');
+  // area and volume
+  const [pondShape, setPondShape] = useState<PondShape>('retangular');
+  const [pond, setPond] = useState<PondValues>({ comprimento: '', largura: '', diametro: '', area: '' });
   const [prof, setProf] = useState('');
+
+  const setPondField = (key: keyof PondValues, value: string) =>
+    setPond((current) => ({ ...current, [key]: value }));
 
   const foodTable = useMemo(() => getFoodTable(selectedSpecies), [selectedSpecies]);
 
@@ -108,24 +180,19 @@ export function Calculadoras({ onBack }: { onBack: () => void }) {
     return (q / a).toFixed(2);
   }, [areaViveiro, qtdPeixes]);
 
+  const areaResult = useMemo(() => pondAreaM2(pondShape, pond), [pondShape, pond]);
+
   const volumeResult = useMemo(() => {
-    const c = parseFloat(comp);
-    const l = parseFloat(larg);
+    const area = pondAreaM2(pondShape, pond);
     const p = parseFloat(prof);
-    if (!c || !l || !p || c <= 0 || l <= 0 || p <= 0) return null;
-    const volume = c * l * p;
+    if (area === null || !Number.isFinite(p) || p <= 0) return null;
+    const volume = area * p;
     return {
+      area,
       m3: volume.toFixed(2),
       litros: (volume * 1000).toLocaleString('pt-BR', { maximumFractionDigits: 0 }),
     };
-  }, [comp, larg, prof]);
-
-  const areaResult = useMemo(() => {
-    const c = parseFloat(areaComp);
-    const l = parseFloat(areaLarg);
-    if (!c || !l || c <= 0 || l <= 0) return null;
-    return (c * l).toFixed(2);
-  }, [areaComp, areaLarg]);
+  }, [pondShape, pond, prof]);
 
   return (
     <div className="flex min-h-full flex-col">
@@ -271,22 +338,10 @@ export function Calculadoras({ onBack }: { onBack: () => void }) {
                 <Square className="h-5 w-5" />
                 <h2 className="font-bold">Área do Viveiro</h2>
               </div>
-              <NumberField
-                label="Comprimento"
-                unit="m"
-                value={areaComp}
-                onChange={setAreaComp}
-                hint="Digite o comprimento em metros (ex: 50 = 50 m)"
-              />
-              <NumberField
-                label="Largura"
-                unit="m"
-                value={areaLarg}
-                onChange={setAreaLarg}
-                hint="Digite a largura em metros (ex: 20 = 20 m)"
-              />
-              {areaResult ? (
-                <ResultCard label="Área" value={areaResult} unit="m²" hint="Área = comprimento × largura." />
+              <ShapeSelector value={pondShape} onChange={setPondShape} />
+              <PondInputs shape={pondShape} values={pond} onChange={setPondField} />
+              {areaResult !== null ? (
+                <ResultCard label="Área" value={areaResult.toFixed(2)} unit="m²" hint={pondShapeInfo[pondShape].areaFormula} />
               ) : (
                 <p className="text-sm text-aqua-500">Preencha os campos para ver o resultado em m².</p>
               )}
@@ -299,20 +354,8 @@ export function Calculadoras({ onBack }: { onBack: () => void }) {
                 <Ruler className="h-5 w-5" />
                 <h2 className="font-bold">Volume do Viveiro</h2>
               </div>
-              <NumberField
-                label="Comprimento"
-                unit="m"
-                value={comp}
-                onChange={setComp}
-                hint="Digite o comprimento em metros (ex: 50 = 50 m)"
-              />
-              <NumberField
-                label="Largura"
-                unit="m"
-                value={larg}
-                onChange={setLarg}
-                hint="Digite a largura em metros (ex: 20 = 20 m)"
-              />
+              <ShapeSelector value={pondShape} onChange={setPondShape} />
+              <PondInputs shape={pondShape} values={pond} onChange={setPondField} />
               <NumberField
                 label="Profundidade média"
                 unit="m"
@@ -322,7 +365,8 @@ export function Calculadoras({ onBack }: { onBack: () => void }) {
               />
               {volumeResult ? (
                 <div className="space-y-3">
-                  <ResultCard label="Volume" value={volumeResult.m3} unit="m³" hint="Volume = comprimento × largura × profundidade média." />
+                  <SimpleRow label="Área do viveiro" value={`${volumeResult.area.toFixed(2)} m²`} />
+                  <ResultCard label="Volume" value={volumeResult.m3} unit="m³" hint={pondShapeInfo[pondShape].volumeFormula} />
                   <SimpleRow label="Volume em litros" value={`${volumeResult.litros} L`} hint="1 m³ equivale a 1.000 litros." />
                 </div>
               ) : (
