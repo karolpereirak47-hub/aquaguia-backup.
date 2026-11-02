@@ -40,7 +40,7 @@ export const species: Species[] = [
     name: 'Tambaqui',
     scientific: 'Colossoma macropomum',
     category: 'peixes-agua-doce',
-    photo: 'https://images.pexels.com/photos/4987033/pexels-photo-4987033.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    photo: '/images/especies/tambaqui.jpg',
     tags: ['amazônia', 'comercial', 'onívoro', 'frutas'],
     description:
       'O tambaqui é o principal peixe nativo cultivado na Amazônia brasileira. Possui corpo alto e comprimido, coloração cinza-escuro com manchas escuras. É onívoro, alimentando-se de frutas, sementes, zooplâncton e ração. Destaca-se pelo rápido crescimento, carne de qualidade e grande aceitação no mercado.',
@@ -89,7 +89,7 @@ export const species: Species[] = [
     name: 'Tilápia',
     scientific: 'Oreochromis niloticus',
     category: 'peixes-agua-doce',
-    photo: 'https://images.pexels.com/photos/15553656/pexels-photo-15553656.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    photo: '/images/especies/tilapia.jpg',
     tags: ['exótica', 'comercial', 'iniciante', 'resistente'],
     description:
       'A tilápia-do-nilo é a espécie exótica mais cultivada no Brasil. Originária da África, adapta-se a diversas condições de criação. Possui crescimento rápido, reprodução fácil e carne de boa qualidade. É a base da piscicultura comercial brasileira.',
@@ -138,7 +138,7 @@ export const species: Species[] = [
     name: 'Tambacu',
     scientific: 'Colossoma macropomum x Piaractus mesopotamicus',
     category: 'peixes-agua-doce',
-    photo: 'https://images.pexels.com/photos/28587107/pexels-photo-28587107.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    photo: '/images/especies/tambacu.jpg',
     tags: ['híbrido', 'comercial', 'amazônia', 'pantanal'],
     description:
       'O tambacu é um híbrido resultante do cruzamento entre fêmea de tambaqui e macho de pacu. Combina o rápido crescimento do tambaqui com a resistência do pacu. É estéril, o que evita superlotação nos viveiros. Muito cultivado no Centro-Oeste.',
@@ -184,7 +184,7 @@ export const species: Species[] = [
     name: 'Tambatinga',
     scientific: 'Colossoma macropomum x Piaractus brachypomus',
     category: 'peixes-agua-doce',
-    photo: 'https://images.pexels.com/photos/38719480/pexels-photo-38719480.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    photo: '/images/especies/tambatinga.jpg',
     tags: ['híbrido', 'comercial', 'amazônia'],
     description:
       'A tambatinga é um híbrido do cruzamento entre fêmea de tambaqui e macho de pirapitinga. Assim como o tambacu, é estéril. Apresenta crescimento rápido e boa adaptação ao cativeiro, sendo uma alternativa para regiões onde o tambaqui sofre com hipoplasia branquial.',
@@ -223,7 +223,7 @@ export const species: Species[] = [
     name: 'Pacu',
     scientific: 'Piaractus mesopotamicus',
     category: 'peixes-agua-doce',
-    photo: 'https://images.pexels.com/photos/20051836/pexels-photo-20051836.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    photo: '/images/especies/pacu.jpg',
     tags: ['nativo', 'pantanal', 'comercial', 'onívoro'],
     description:
       'O pacu é um peixe nativo da bacia do Prata (Pantanal). Possui corpo alto e comprimido, com dentes molariformes adaptados para quebrar sementes e frutos. É muito apreciado pela carne de qualidade. Adapta-se bem ao cativeiro, mas cresce mais devagar que o tambaqui.',
@@ -264,7 +264,7 @@ export const species: Species[] = [
     name: 'Pirarucu',
     scientific: 'Arapaima gigas',
     category: 'peixes-agua-doce',
-    photo: 'https://images.pexels.com/photos/14457826/pexels-photo-14457826.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    photo: '/images/especies/pirarucu.jpg',
     tags: ['amazônia', 'gigante', 'respiração aérea', 'comercial'],
     description:
       'O pirarucu é um dos maiores peixes de água doce do mundo, podendo ultrapassar 200 kg. Possui respiração aérea obrigatória — precisa subir à superfície para respirar ar atmosférico. Tem carne branca de excelente qualidade, sem espinhas intramusculares, e alto valor comercial.',
@@ -313,7 +313,7 @@ export const species: Species[] = [
     name: 'Pintado',
     scientific: 'Pseudoplatystoma corruscans',
     category: 'peixes-agua-doce',
-    photo: 'https://images.pexels.com/photos/38283737/pexels-photo-38283737.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    photo: '/images/especies/pintado.jpg',
     tags: ['nativo', 'pantanal', 'carnívoro', 'bagre'],
     description:
       'O pintado é um bagre de couro nativo das bacias do Paraná e Paraguai. Possui corpo alongado com manchas escuras características. É muito valorizado pela carne firme, branca e sem espinhas intramusculares. Exige manejo especializado por ser carnívoro.',
@@ -360,7 +360,7 @@ export const species: Species[] = [
     name: 'Cachara',
     scientific: 'Pseudoplatystoma reticulatum',
     category: 'peixes-agua-doce',
-    photo: 'https://images.pexels.com/photos/37714627/pexels-photo-37714627.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    photo: '/images/especies/cachara.jpg',
     tags: ['nativo', 'pantanal', 'carnívoro', 'bagre'],
     description:
       'A cachara é um bagre de couro nativo, muito semelhante ao pintado, mas com padrão de manchas diferente (listras e reticulados). É valorizada pela mesma qualidade de carne. Comercialmente, é frequentemente comercializada junto com o pintado.',
@@ -400,7 +400,7 @@ export const species: Species[] = [
     name: 'Jundiá',
     scientific: 'Rhamdia quelen',
     category: 'peixes-agua-doce',
-    photo: 'https://images.pexels.com/photos/4619577/pexels-photo-4619577.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    photo: '/images/especies/jundia.jpg',
     tags: ['nativo', 'sul', 'comercial', 'bagre', 'resistente'],
     description:
       'O jundiá é um bagre nativo do sul do Brasil. Possui corpo alongado e sem escamas. É rústico, resistente ao frio e de fácil manejo. Muito cultivado na Região Sul, especialmente em Santa Catarina e Rio Grande do Sul.',
@@ -440,7 +440,7 @@ export const species: Species[] = [
     name: 'Matrinxã',
     scientific: 'Brycon amazonicus',
     category: 'peixes-agua-doce',
-    photo: 'https://images.pexels.com/photos/12572537/pexels-photo-12572537.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    photo: '/images/especies/matrinxa.jpg',
     tags: ['amazônia', 'nativo', 'comercial', 'esportivo'],
     description:
       'A matrinxã é um peixe nativo da Amazônia, muito apreciado pela carne de qualidade e valorizado na pesca esportiva. É ativo, nada em cardumes e aceita ração em cativeiro. Tem crescimento moderado.',
@@ -481,7 +481,7 @@ export const species: Species[] = [
     name: 'Curimatã',
     scientific: 'Prochilodus lineatus',
     category: 'peixes-agua-doce',
-    photo: 'https://images.pexels.com/photos/18072772/pexels-photo-18072772.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    photo: '/images/especies/curimata.jpg',
     tags: ['nativo', 'pantanal', 'comercial', 'iliófago'],
     description:
       'A curimatã (ou curimbatá) é um peixe nativo da bacia do Prata. É iliófaga, ou seja, alimenta-se de lodo e detritos do fundo. Tem importante papel ecológico na ciclagem de nutrientes. É muito utilizada em policultivo com outras espécies.',
@@ -521,7 +521,7 @@ export const species: Species[] = [
     name: 'Pirapitinga',
     scientific: 'Piaractus brachypomus',
     category: 'peixes-agua-doce',
-    photo: 'https://images.pexels.com/photos/13561545/pexels-photo-13561545.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    photo: '/images/especies/pirapitinga.jpg',
     tags: ['amazônia', 'nativo', 'comercial'],
     description:
       'A pirapitinga é um peixe nativo da Amazônia, parente próximo do tambaqui. Possui corpo alto e coloração cinza com manchas avermelhadas na barriga. É onívora e adapta-se bem ao cativeiro. É utilizada tanto pura quanto na produção de híbridos (tambatinga).',
@@ -560,7 +560,7 @@ export const species: Species[] = [
     name: 'Piau',
     scientific: 'Leporinus friderici',
     category: 'peixes-agua-doce',
-    photo: 'https://images.pexels.com/photos/5532880/pexels-photo-5532880.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    photo: '/images/especies/piau.jpg',
     tags: ['nativo', 'comercial', 'sudeste'],
     description:
       'O piau é um peixe nativo do Brasil, encontrado em rios do Sudeste e Centro-Oeste. Possui corpo alongado com manchas amarelas características. É onívoro e de crescimento moderado. Tem valor comercial regional.',
@@ -598,7 +598,7 @@ export const species: Species[] = [
     name: 'Traíra',
     scientific: 'Hoplias malabaricus',
     category: 'peixes-agua-doce',
-    photo: 'https://images.pexels.com/photos/39270286/pexels-photo-39270286.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    photo: '/images/especies/traira.jpg',
     tags: ['nativo', 'carnívoro', 'resistente', 'regional'],
     description:
       'A traíra é um peixe nativo do Brasil, muito comum em lagoas e rios. É carnívora, predadora voraz, com corpo cilíndrico e cabeça grande. Tolera águas de baixa qualidade e baixa oxigenação. Tem carne apreciada regionalmente.',
@@ -638,7 +638,7 @@ export const species: Species[] = [
     name: 'Robalo',
     scientific: 'Centropomus spp.',
     category: 'peixes-marinhos',
-    photo: 'https://images.pexels.com/photos/2042564/pexels-photo-2042564.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    photo: '/images/especies/robalo.jpg',
     tags: ['marinho', 'estuarino', 'comercial', 'nobre'],
     description:
       'O robalo é um peixe marinho-estuarino de alto valor comercial. No Brasil, as espécies mais cultivadas são o robalo-flecha (Centropomus undecimalis) e o robalo-peba (C. parallelus). Possui carne branca de excelente qualidade. É eurialino, ou seja, tolera ampla variação de salinidade.',
@@ -684,7 +684,7 @@ export const species: Species[] = [
     name: 'Bijupirá',
     scientific: 'Rachycentron canadum',
     category: 'peixes-marinhos',
-    photo: 'https://images.pexels.com/photos/14879227/pexels-photo-14879227.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    photo: '/images/especies/bijupira.jpg',
     tags: ['marinho', 'comercial', 'nobre', 'crescimento rápido'],
     description:
       'O bijupirá (ou cobia) é um peixe marinho de alto valor comercial, com crescimento extremamente rápido em cativeiro. Pode atingir 4–6 kg em 12 meses. Possui carne branca de excelente qualidade. É uma das espécies marinhas com maior potencial para aquicultura no Brasil.',
@@ -731,7 +731,7 @@ export const species: Species[] = [
     name: 'Camarão Marinho',
     scientific: 'Litopenaeus vannamei',
     category: 'camaroes',
-    photo: 'https://images.pexels.com/photos/16521533/pexels-photo-16521533.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    photo: '/images/especies/camaraomarinho.jpg',
     tags: ['marinho', 'comercial', 'exportação', 'nordeste'],
     description:
       'O camarão-branco-do-pacífico é a espécie de camarão mais cultivada no mundo e no Brasil. Possui crescimento rápido, tolera ampla faixa de salinidade e tem alto valor de exportação. A carcinicultura é uma das principais atividades aquícolas do Nordeste brasileiro.',
@@ -780,7 +780,7 @@ export const species: Species[] = [
     name: 'Camarão da Amazônia',
     scientific: 'Macrobrachium amazonicum',
     category: 'camaroes',
-    photo: 'https://images.pexels.com/photos/17714806/pexels-photo-17714806.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    photo: '/images/especies/camaraodaamazonia.jpg',
     tags: ['água doce', 'amazônia', 'nativo', 'regional'],
     description:
       'O camarão-da-amazônia é uma espécie nativa de água doce, muito apreciada na culinária regional amazônica. É menor que o camarão marinho, mas tem grande importância social e econômica na região Norte. Tem potencial para cultivo em viveiros de água doce.',
@@ -822,7 +822,7 @@ export const species: Species[] = [
     name: 'Ostra',
     scientific: 'Crassostrea gasar (C. brasiliana)',
     category: 'moluscos',
-    photo: 'https://images.pexels.com/photos/2819899/pexels-photo-2819899.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    photo: '/images/especies/ostra.jpg',
     tags: ['marinho', 'molusco', 'comercial', 'litoral'],
     description:
       'A ostra é um molusco bivalve filtrador, cultivado em regiões litorâneas do Brasil. A espécie nativa Crassostrea gasar (anteriormente C. brasiliana) é a mais cultivada. A ostreicultura é uma atividade de baixo impacto ambiental, pois as ostras filtram a água e não necessitam de ração.',
@@ -870,7 +870,7 @@ export const species: Species[] = [
     name: 'Mexilhão',
     scientific: 'Perna perna',
     category: 'moluscos',
-    photo: 'https://images.pexels.com/photos/11508336/pexels-photo-11508336.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    photo: '/images/especies/mexilhao.jpg',
     tags: ['marinho', 'molusco', 'comercial', 'litoral'],
     description:
       'O mexilhão é um molusco bivalve filtrador, cultivado principalmente em Santa Catarina, que é a maior produtora do Brasil. A espécie Perna perna é a mais cultivada. Assim como a ostra, é filtrador e não necessita ração. A mitilicultura é uma atividade econômica importante no litoral catarinense.',
@@ -917,7 +917,7 @@ export const species: Species[] = [
     name: 'Vieira',
     scientific: 'Nodipecten nodosus',
     category: 'moluscos',
-    photo: 'https://images.pexels.com/photos/34087294/pexels-photo-34087294.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    photo: '/images/especies/vieira.jpg',
     tags: ['marinho', 'molusco', 'comercial', 'nobre'],
     description:
       'A vieira é um molusco bivalve de alto valor comercial, com carne nobre muito apreciada na gastronomia. No Brasil, a espécie Nodipecten nodosus (vieira-almofada) é a mais cultivada. A cultivo é realizado em regiões com águas marinhas de boa qualidade.',
@@ -963,7 +963,7 @@ export const species: Species[] = [
     name: 'Rã-touro',
     scientific: 'Lithobates catesbeianus',
     category: 'ras',
-    photo: 'https://images.pexels.com/photos/8472012/pexels-photo-8472012.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    photo: '/images/especies/ra_touro.jpg',
     tags: ['anfíbio', 'comercial', 'rã-cultura', 'carne'],
     description:
       'A rã-touro é a espécie de anfíbio mais criada em cativeiro no mundo. Originária da América do Norte, é criada no Brasil para produção de carne (pernil) e couro. A rã-cultura é uma atividade de nicho, mas com bom valor de mercado. Exige manejo especializado e controle rigoroso de qualidade da água.',
@@ -1011,7 +1011,7 @@ export const species: Species[] = [
     name: 'Kappaphycus',
     scientific: 'Kappaphycus alvarezii',
     category: 'macroalgas',
-    photo: 'https://images.pexels.com/photos/17317995/pexels-photo-17317995.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    photo: '/images/especies/kappaphycus.jpg',
     tags: ['marinho', 'macroalga', 'comercial', 'carragena'],
     description:
       'Kappaphycus alvarezii é uma macroalga marinha cultivada para produção de carragena, substância usada na indústria alimentícia, farmacêutica e cosmética. No Brasil, é cultivada em regiões litorâneas do Nordeste. O cultivo é simples e de baixo custo, com bom potencial para comunidades costeiras.',
@@ -1059,7 +1059,7 @@ export const species: Species[] = [
     name: 'Gracilaria',
     scientific: 'Gracilaria birdiae',
     category: 'macroalgas',
-    photo: 'https://images.pexels.com/photos/35019963/pexels-photo-35019963.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    photo: '/images/especies/gracilaria.jpg',
     tags: ['marinho', 'macroalga', 'comercial', 'agar'],
     description:
       'Gracilaria é um gênero de macroalga marinha cultivada para produção de ágar, substância usada na indústria alimentícia e farmacêutica. No Brasil, a espécie Gracilaria birdiae é nativa e cultivada no Nordeste. O cultivo é simples e pode ser feito em áreas estuarinas.',
