@@ -55,7 +55,7 @@ function ShapeSelector({ value, onChange }: { value: PondShape; onChange: (s: Po
   return (
     <div>
       <span className="text-sm font-medium text-aqua-800">Formato do viveiro</span>
-      <div className="mt-1 grid grid-cols-3 gap-2">
+      <div className="mt-1 grid grid-cols-2 gap-2 sm:grid-cols-4">
         {pondShapeIds.map((id) => (
           <button
             key={id}
@@ -79,6 +79,17 @@ function PondInputs({
 }: {
   shape: PondShape; values: PondValues; onChange: (key: keyof PondValues, value: string) => void;
 }) {
+  if (shape === 'quadrado') {
+    return (
+      <NumberField
+        label="Lado"
+        unit="m"
+        value={values.lado}
+        onChange={(v) => onChange('lado', v)}
+        hint="Digite a medida de um lado em metros (ex: 20 = 20 m)"
+      />
+    );
+  }
   if (shape === 'circular') {
     return (
       <NumberField
@@ -139,7 +150,7 @@ export function Calculadoras({ onBack }: { onBack: () => void }) {
 
   // area and volume
   const [pondShape, setPondShape] = useState<PondShape>('retangular');
-  const [pond, setPond] = useState<PondValues>({ comprimento: '', largura: '', diametro: '', area: '' });
+  const [pond, setPond] = useState<PondValues>({ comprimento: '', largura: '', lado: '', diametro: '', area: '' });
   const [prof, setProf] = useState('');
 
   const setPondField = (key: keyof PondValues, value: string) =>
