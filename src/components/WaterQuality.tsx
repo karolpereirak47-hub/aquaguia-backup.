@@ -5,6 +5,7 @@ import {
   CheckCircle,
 } from 'lucide-react';
 import { Header } from './Header';
+import { parseDecimal } from '../utils/number';
 import { WaterIcon } from './icons/WaterIcon';
 import { waterParams } from '../data/waterQuality';
 import { species } from '../data/species';
@@ -15,9 +16,9 @@ import {
 
 type View = 'info' | 'analisar';
 
-export function WaterQuality({ onBack }: { onBack: () => void }) {
+export function WaterQuality({ onBack, initialParamId }: { onBack: () => void; initialParamId?: string }) {
   const [view, setView] = useState<View>('info');
-  const [open, setOpen] = useState<string | null>(waterParams[0].id);
+  const [open, setOpen] = useState<string | null>(initialParamId ?? waterParams[0].id);
 
   return (
     <div className="flex min-h-full flex-col">
@@ -135,7 +136,7 @@ function WaterAnalyzer() {
       .map((f) => {
         const range = params[f.key as keyof typeof params] as ParamRange;
         const raw = values[f.key];
-        const val = raw ? parseFloat(raw) : NaN;
+        const val = raw ? parseDecimal(raw) : NaN;
         const status = analyzeParam(val, range);
         const direction = getParamDirection(val, range);
         const guidance = (status === 'ruim' || status === 'atencao') && direction !== 'ok'

@@ -9,6 +9,7 @@ import { ParamIcon } from './icons/ParamIcon';
 import { species } from '../data/species';
 import { categories } from '../data/categories';
 import { getFoodTable, detectPhase } from '../data/foodTables';
+import { parseDecimal, parseMealRange } from '../utils/number';
 import { getLibraryBySpecies } from '../data/library';
 import { useFavorites } from '../hooks/useFavorites';
 
@@ -394,8 +395,8 @@ function SpeciesCalculator({ speciesId }: { speciesId: string }) {
   const [avgWeight, setAvgWeight] = useState('');
 
   const result = useMemo(() => {
-    const n = parseFloat(numAnimals);
-    const w = parseFloat(avgWeight);
+    const n = parseDecimal(numAnimals);
+    const w = parseDecimal(avgWeight);
     if (!n || !w || n <= 0 || w <= 0 || !foodTable) return null;
 
     const phase = detectPhase(w, foodTable.rows);
@@ -403,8 +404,12 @@ function SpeciesCalculator({ speciesId }: { speciesId: string }) {
 
     const biomass = (n * w) / 1000; // kg
     const dailyFeed = (biomass * phase.feedRateValue) / 100; // kg/day
-    const mealsPerDay = parseInt(phase.frequency) || 2;
-    const feedPerMeal = dailyFeed / mealsPerDay;
+    const mealRange = parseMealRange(phase.frequency) ?? { min: 2, max: 2 };
+    const perMealMin = dailyFeed / mealRange.max;
+    const perMealMax = dailyFeed / mealRange.min;
+    const feedPerMeal = perMealMin === perMealMax
+      ? `${perMealMin.toFixed(2)} kg/alimentação`
+      : `${perMealMin.toFixed(2)}–${perMealMax.toFixed(2)} kg/alimentação`;
     const feed7Days = dailyFeed * 7;
     const feed30Days = dailyFeed * 30;
 
@@ -476,7 +481,7 @@ function SpeciesCalculator({ speciesId }: { speciesId: string }) {
 
           <div className="grid grid-cols-1 gap-3">
             <ResultRow label="Ração por dia" value={`${result.dailyFeed.toFixed(2)} kg`} />
-            <ResultRow label="Ração por alimentação" value={`${result.feedPerMeal.toFixed(2)} kg`} hint={`${result.phase.frequency}`} />
+            <ResultRow label="Ração por alimentação" value={result.feedPerMeal} hint={`${result.phase.frequency} alimentações/dia`} />
             <ResultRow label="Ração para 7 dias" value={`${result.feed7Days.toFixed(2)} kg`} />
             <ResultRow label="Ração para 30 dias" value={`${result.feed30Days.toFixed(2)} kg`} />
           </div>

@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Calculator, Fish, Layers, Ruler, Square, Wheat } from 'lucide-react';
 import { Header } from './Header';
+import { parseDecimal, parseMealRange } from '../utils/number';
 import { species } from '../data/species';
 import { getFoodTable, detectPhase } from '../data/foodTables';
 import {
@@ -9,7 +10,7 @@ import {
 
 type CalcId = 'racao' | 'biomassa' | 'densidade' | 'area' | 'volume';
 
-const calculators: { id: CalcId; label: string; icon: typeof Fish; tint: string }[] = [
+export const calculators: { id: CalcId; label: string; icon: typeof Fish; tint: string }[] = [
   { id: 'racao', label: 'Ração por Espécie', icon: Wheat, tint: 'from-teal-500 to-aqua-600' },
   { id: 'biomassa', label: 'Biomassa', icon: Fish, tint: 'from-aqua-500 to-deep-600' },
   { id: 'densidade', label: 'Densidade', icon: Layers, tint: 'from-accent-500 to-teal-600' },
@@ -148,34 +149,38 @@ export function Calculadoras({ onBack }: { onBack: () => void }) {
   const foodTable = useMemo(() => getFoodTable(selectedSpecies), [selectedSpecies]);
 
   const racaoResult = useMemo(() => {
-    const n = parseFloat(numAnimals);
-    const w = parseFloat(avgWeight);
+    const n = parseDecimal(numAnimals);
+    const w = parseDecimal(avgWeight);
     if (!n || !w || n <= 0 || w <= 0 || !foodTable) return null;
     const phase = detectPhase(w, foodTable.rows);
     if (!phase || phase.feedRateValue === 0) return null;
     const biomass = (n * w) / 1000;
     const daily = (biomass * phase.feedRateValue) / 100;
-    const meals = parseInt(phase.frequency) || 2;
+    const mealRange = parseMealRange(phase.frequency) ?? { min: 2, max: 2 };
+    const perMealMin = daily / mealRange.max;
+    const perMealMax = daily / mealRange.min;
     return {
       phase,
       biomass,
       daily,
-      perMeal: daily / meals,
+      perMeal: perMealMin === perMealMax
+        ? `${perMealMin.toFixed(2)} kg/alimentação`
+        : `${perMealMin.toFixed(2)}–${perMealMax.toFixed(2)} kg/alimentação`,
       days7: daily * 7,
       days30: daily * 30,
     };
   }, [numAnimals, avgWeight, foodTable]);
 
   const biomassaResult = useMemo(() => {
-    const n = parseFloat(numPeixes);
-    const pm = parseFloat(pesoMedio);
+    const n = parseDecimal(numPeixes);
+    const pm = parseDecimal(pesoMedio);
     if (!n || !pm || n <= 0 || pm <= 0) return null;
     return ((n * pm) / 1000).toFixed(2);
   }, [numPeixes, pesoMedio]);
 
   const densidadeResult = useMemo(() => {
-    const a = parseFloat(areaViveiro);
-    const q = parseFloat(qtdPeixes);
+    const a = parseDecimal(areaViveiro);
+    const q = parseDecimal(qtdPeixes);
     if (!a || !q || a <= 0 || q <= 0) return null;
     return (q / a).toFixed(2);
   }, [areaViveiro, qtdPeixes]);
@@ -184,7 +189,7 @@ export function Calculadoras({ onBack }: { onBack: () => void }) {
 
   const volumeResult = useMemo(() => {
     const area = pondAreaM2(pondShape, pond);
-    const p = parseFloat(prof);
+    const p = parseDecimal(prof);
     if (area === null || !Number.isFinite(p) || p <= 0) return null;
     const volume = area * p;
     return {
@@ -264,7 +269,7 @@ export function Calculadoras({ onBack }: { onBack: () => void }) {
                   <ResultCard label="Biomassa total" value={racaoResult.biomass.toFixed(2)} unit="kg" hint="Calculado a partir do número de animais x peso médio." />
                   <div className="grid grid-cols-1 gap-2">
                     <SimpleRow label="Ração por dia" value={`${racaoResult.daily.toFixed(2)} kg/dia`} />
-                    <SimpleRow label="Ração por alimentação" value={`${racaoResult.perMeal.toFixed(2)} kg/alimentação`} hint={`${racaoResult.phase.frequency} alimentações/dia`} />
+                    <SimpleRow label="Ração por alimentação" value={racaoResult.perMeal} hint={`${racaoResult.phase.frequency} alimentações/dia`} />
                     <SimpleRow label="Ração para 7 dias" value={`${racaoResult.days7.toFixed(2)} kg`} />
                     <SimpleRow label="Ração para 30 dias" value={`${racaoResult.days30.toFixed(2)} kg`} />
                   </div>

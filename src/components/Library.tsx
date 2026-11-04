@@ -19,8 +19,9 @@ const typeMeta: Record<MaterialType, { icon: typeof FileText; label: string; tin
   legislacao: { icon: FileText, label: 'Legislação', tint: 'bg-accent-100 text-accent-700' },
 };
 
-export function Library({ onBack }: { onBack: () => void }) {
-  const [query, setQuery] = useState('');
+export function Library({ onBack, initialItemId }: { onBack: () => void; initialItemId?: string }) {
+  const initialItem = initialItemId ? libraryItems.find((item) => item.id === initialItemId) : undefined;
+  const [query, setQuery] = useState(initialItem?.title ?? '');
   const [category, setCategory] = useState<LibraryCategory | 'todas'>('todas');
   const { isFavorite, toggle } = useFavorites();
   const availableCategories = useMemo(

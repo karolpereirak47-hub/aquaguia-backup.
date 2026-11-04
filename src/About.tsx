@@ -6,6 +6,7 @@ import { categories } from './data/categories';
 import { libraryItems } from './data/library';
 import { waterParams } from './data/waterQuality';
 import { foodTables } from './data/foodTables';
+import { calculators } from './components/Calculadoras';
 
 const APP_VERSION = '2.0';
 const LAST_UPDATE = '20/10/2026';
@@ -14,7 +15,7 @@ export function About({ onBack }: { onBack: () => void }) {
   const stats = [
     { icon: Fish, label: 'Espécies cadastradas', value: species.length, tint: 'text-aqua-600' },
     { icon: Info, label: 'Categorias', value: categories.length, tint: 'text-teal-600' },
-    { icon: Waves, label: 'Calculadoras', value: 4, tint: 'text-accent-600' },
+    { icon: Waves, label: 'Calculadoras', value: calculators.length, tint: 'text-accent-600' },
     { icon: BookOpen, label: 'Materiais na biblioteca', value: libraryItems.length, tint: 'text-deep-600' },
     { icon: Droplets, label: 'Parâmetros de água', value: waterParams.length, tint: 'text-teal-600' },
     { icon: Star, label: 'Tabelas alimentares', value: foodTables.length, tint: 'text-aqua-500' },
@@ -35,7 +36,7 @@ export function About({ onBack }: { onBack: () => void }) {
           <p className="text-sm leading-relaxed text-aqua-900">
             O AquaGuia é um aplicativo sobre organismos aquáticos cultivados no Brasil. Aqui você encontra
             informações sobre espécies, tabelas alimentares, calculadoras de manejo, qualidade da água e uma
-            biblioteca técnica com fontes oficiais brasileiras — tudo em português e funcionando offline.
+            biblioteca técnica com fontes oficiais brasileiras — os dados principais ficam disponíveis no aparelho, enquanto links externos exigem internet.
           </p>
         </div>
 

@@ -75,8 +75,8 @@ export function Search({ onBack, onNavigate }: SearchProps) {
 
   const open = (r: Result) => {
     if (r.kind === 'species') onNavigate('speciesDetail', r.id);
-    else if (r.kind === 'water') onNavigate('water');
-    else onNavigate('library');
+    else if (r.kind === 'water') onNavigate('water', r.id);
+    else onNavigate('library', r.id);
   };
 
   return (

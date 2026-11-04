@@ -96,10 +96,10 @@ export default function App() {
         <Species onBack={back} onOpen={(id) => navigate('speciesDetail', id)} onNavigate={navigate} />
       )}
       {screen === 'speciesDetail' && <SpeciesDetail id={detailId} onBack={back} />}
-      {screen === 'water' && <WaterQuality onBack={back} />}
+      {screen === 'water' && <WaterQuality onBack={back} initialParamId={detailId} />}
       {screen === 'calc' && <Calculadoras onBack={back} />}
       {screen === 'checklist' && <Checklist onBack={back} />}
-      {screen === 'library' && <Library onBack={back} />}
+      {screen === 'library' && <Library onBack={back} initialItemId={detailId} />}
       {screen === 'favorites' && <Favorites onBack={back} />}
       {screen === 'about' && <About onBack={back} />}
       {screen === 'search' && <Search onBack={back} onNavigate={navigate} />}

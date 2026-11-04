@@ -30,8 +30,10 @@ export const pondShapeInfo: Record<
 
 export const pondShapeIds = Object.keys(pondShapeInfo) as PondShape[];
 
+import { parseDecimal } from '../utils/number';
+
 function positive(value: string): number | null {
-  const n = parseFloat(value);
+  const n = parseDecimal(value);
   return Number.isFinite(n) && n > 0 ? n : null;
 }
 

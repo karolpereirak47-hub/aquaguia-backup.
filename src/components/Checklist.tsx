@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   Check, CheckCheck, ClipboardCheck, Fish, History,
   RotateCcw, Sun, CalendarDays, Trash2, RefreshCw,
@@ -8,7 +8,7 @@ import {
   checklistDefinitions, getAllTasks, getChecklistById,
   type ChecklistDefinition,
 } from '../data/checklists';
-import { useChecklistState } from '../hooks/useChecklistState';
+import { useChecklistState, type ChecklistHistoryEntry } from '../hooks/useChecklistState';
 
 const iconMap: Record<string, typeof ClipboardCheck> = {
   clipboard: ClipboardCheck,
@@ -39,6 +39,7 @@ export function Checklist({ onBack }: { onBack: () => void }) {
         markAll={markAll}
         unmarkAll={unmarkAll}
         recordCompletion={recordCompletion}
+        completionHistory={history}
         resetChecklist={resetChecklist}
         getObservation={getObservation}
         setObservation={setObservation}
@@ -120,6 +121,7 @@ interface ChecklistDetailProps {
   markAll: (checklistId: string, taskIds: string[]) => void;
   unmarkAll: (checklistId: string) => void;
   recordCompletion: (checklistId: string, checklistName: string) => void;
+  completionHistory: ChecklistHistoryEntry[];
   resetChecklist: (checklistId: string) => void;
   getObservation: (checklistId: string) => string;
   setObservation: (checklistId: string, value: string) => void;
@@ -127,26 +129,27 @@ interface ChecklistDetailProps {
 
 function ChecklistDetail({
   checklist, onBack, isTaskDone, toggleTask, markAll, unmarkAll,
-  recordCompletion, resetChecklist, getObservation, setObservation,
+  recordCompletion, completionHistory, resetChecklist, getObservation, setObservation,
 }: ChecklistDetailProps) {
   const allTasks = useMemo(() => getAllTasks(checklist), [checklist]);
-  const [showUnmarkConfirm, setShowUnmarkConfirm] = useState(false);
-  const [showRedoConfirm, setShowRedoConfirm] = useState(false);
-  const [completionRecorded, setCompletionRecorded] = useState(false);
-
   const doneCount = allTasks.filter((t) => isTaskDone(checklist.id, t.id)).length;
   const pct = allTasks.length > 0 ? Math.round((doneCount / allTasks.length) * 100) : 0;
   const allDone = doneCount === allTasks.length && allTasks.length > 0;
   const isRecurring = RECURRING.has(checklist.id);
+  const [showUnmarkConfirm, setShowUnmarkConfirm] = useState(false);
+  const [showRedoConfirm, setShowRedoConfirm] = useState(false);
+  const [completionRecorded, setCompletionRecorded] = useState(
+    () => allDone && completionHistory.some((entry) => entry.checklistId === checklist.id),
+  );
 
-  if (allDone && !completionRecorded) {
-    recordCompletion(checklist.id, checklist.name);
-    setCompletionRecorded(true);
-  }
-
-  if (!allDone && completionRecorded) {
-    setCompletionRecorded(false);
-  }
+  useEffect(() => {
+    if (allDone && !completionRecorded) {
+      recordCompletion(checklist.id, checklist.name);
+      setCompletionRecorded(true);
+    } else if (!allDone && completionRecorded) {
+      setCompletionRecorded(false);
+    }
+  }, [allDone, checklist.id, checklist.name, completionRecorded, recordCompletion]);
 
   const handleMarkAll = () => {
     markAll(checklist.id, allTasks.map((t) => t.id));
