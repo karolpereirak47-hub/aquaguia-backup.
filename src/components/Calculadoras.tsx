@@ -101,17 +101,6 @@ function PondInputs({
       />
     );
   }
-  if (shape === 'irregular') {
-    return (
-      <NumberField
-        label="Área do viveiro"
-        unit="m²"
-        value={values.area}
-        onChange={(v) => onChange('area', v)}
-        hint="Informe a área medida ou estimada (ex: 450 = 450 m²)"
-      />
-    );
-  }
   return (
     <>
       <NumberField
@@ -150,7 +139,7 @@ export function Calculadoras({ onBack }: { onBack: () => void }) {
 
   // area and volume
   const [pondShape, setPondShape] = useState<PondShape>('retangular');
-  const [pond, setPond] = useState<PondValues>({ comprimento: '', largura: '', lado: '', diametro: '', area: '' });
+  const [pond, setPond] = useState<PondValues>({ comprimento: '', largura: '', lado: '', diametro: '' });
   const [prof, setProf] = useState('');
 
   const setPondField = (key: keyof PondValues, value: string) =>

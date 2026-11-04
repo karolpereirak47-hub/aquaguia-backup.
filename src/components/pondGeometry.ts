@@ -1,11 +1,10 @@
-export type PondShape = 'retangular' | 'quadrado' | 'circular' | 'irregular';
+export type PondShape = 'retangular' | 'quadrado' | 'circular';
 
 export interface PondValues {
   comprimento: string;
   largura: string;
   lado: string;
   diametro: string;
-  area: string;
 }
 
 export const pondShapeInfo: Record<
@@ -26,11 +25,6 @@ export const pondShapeInfo: Record<
     label: 'Circular',
     areaFormula: 'Área = π × (diâmetro ÷ 2)².',
     volumeFormula: 'Volume = π × (diâmetro ÷ 2)² × profundidade média.',
-  },
-  irregular: {
-    label: 'Irregular',
-    areaFormula: 'Área informada manualmente.',
-    volumeFormula: 'Volume = área informada × profundidade média.',
   },
 };
 
@@ -55,5 +49,5 @@ export function pondAreaM2(shape: PondShape, values: PondValues): number | null 
     const d = positive(values.diametro);
     return d !== null ? Math.PI * (d / 2) ** 2 : null;
   }
-  return positive(values.area);
+  return null;
 }
